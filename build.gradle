@@ -26,7 +26,7 @@ apply plugin: "forge"
 apply plugin: "maven"
 
 group = "net.doubledoordev.pay2spawn"
-version = "2.3.0"
+version = "2.4.0"
 
 targetCompatibility = 1.7
 sourceCompatibility = 1.7
@@ -35,6 +35,17 @@ archivesBaseName = 'Pay2Spawn'
 minecraft {
     version = "1.7.10-10.13.0.1194"
     runDir = "jars"
+}
+
+repositories {
+    maven {
+         name "DDD repo"
+         url "http://doubledoordev.net/maven/"
+     }
+}
+
+dependencies {
+    compile "net.doubledoordev.d3core:D3Core:" + project.minecraft.version + "-+:dev"
 }
 
 if (System.getenv().BUILD_NUMBER != null) version += "." + System.getenv().BUILD_NUMBER
